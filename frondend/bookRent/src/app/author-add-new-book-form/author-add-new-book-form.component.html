@@ -1,0 +1,31 @@
+<div class="loginPageBody" >
+	
+<div class="login-page">
+  <div class="form">
+  <p style="font-size: 26px;" class="bigtitle">Create new book</p>
+    <form class="login-form">
+      <!-- <p *ngIf="!staticUrlArray()" [style.color]="red">Tài khoản không tồn tại</p> -->
+<label>Book name</label>
+<input type="text" placeholder="Book name" name="bookName" required [(ngModel)]="bookName"><br>
+{{bookName}}
+<label>Book type</label>
+				<select name="booktype" (change)="getSelectedBookType($event)">
+					<option *ngFor="let bookType of bookTypeList" value="{{bookType.bookTypeId}}">{{bookType.bookType}}</option>
+				</select><br>
+				<label>Book language</label>
+				<select name="language" (change)="getSelectedLanguage($event)">
+					<option *ngFor="let lang of languageList" value="{{lang.languageId}}">{{lang.language}}</option>
+				</select><br>
+				<label>Price</label>
+				<input type="number" placeholder="Price" name="price" required [(ngModel)]="bookPrice"><br>
+			
+				<!-- <label>Book image</label>
+				<input type="file" placeholder="Price" name="price" required (change)="addBookImage()"><br> -->
+				<input type="submit" value="Create book" [style.background-color]="'#a8f4f2'" (click)="createNewBook()">
+     
+    </form>
+  </div>
+</div>
+</div>
+
+

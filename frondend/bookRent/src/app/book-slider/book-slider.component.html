@@ -1,0 +1,75 @@
+<div class="mainDivSlide" >
+	
+	<div class="bookSlideBlock">
+<div class="bookSlideTitle">
+	<p [style.font-size.px]="22" style="float: left;width: 200px;">Non-Image Story</p>
+	<a [routerLink]="['/bookByBookType/1']"  [style.font-size.px]="18" style="float: right;width: 200px;">See more ...</a>
+	<div style="clear: both;"></div>
+</div>
+
+<div [ngClass]="'mainSlide'">
+	<div class="bookDiv" *ngFor="let book of booklist">
+		<a [routerLink]="['/bookPurchasedDetail/',book.id]"><img src="assets/images/{{book.bookImage}}" ></a>
+		<p [style.font-size.px]="18"><b>{{book.bookName}}</b></p>
+
+
+<p>{{book.releaseDate| date}}</p>
+
+	</div>
+
+
+
+
+
+</div>	
+</div>
+
+	<div class="bookSlideBlock">
+<div class="bookSlideTitle">
+	<p [style.font-size.px]="22" style="float: left;width: 200px;">Sci-fi</p>
+	<a [routerLink]="['/bookByBookType/2']"  [style.font-size.px]="18" style="float: right;width: 200px;">See more ...</a>
+	<div style="clear: both;"></div>
+</div>
+
+<div [ngClass]="'mainSlide'">
+	<div class="bookDiv" *ngFor="let book of booklist2">
+		<a [routerLink]="['/bookPurchasedDetail/',book.id]"><img src="assets/images/{{book.bookImage}}" ></a>
+		<p [style.font-size.px]="18"><b>{{book.bookName}}</b></p>
+
+
+<p>{{book.releaseDate | date}}</p>
+
+	</div>
+
+
+
+
+
+</div>	
+</div>
+
+	<div class="bookSlideBlock">
+<div class="bookSlideTitle">
+	<p [style.font-size.px]="22" style="float: left;width: 200px;">Love story</p>
+	<a [routerLink]="['/bookByBookType/3']"  [style.font-size.px]="18" style="float: right;width: 200px;">See more ...</a>
+	<div style="clear: both;"></div>
+</div>
+
+<div [ngClass]="'mainSlide'">
+	<div class="bookDiv" *ngFor="let book of booklist3">
+		<a [routerLink]="['/bookPurchasedDetail/',book.id]"><img src="assets/images/{{book.bookImage}}" ></a>
+		<p [style.font-size.px]="18"><b>{{book.bookName}}</b></p>
+
+
+<p>{{book.releaseDate | date}}</p>
+
+	</div>
+
+
+
+
+
+</div>	
+</div>
+
+</div>

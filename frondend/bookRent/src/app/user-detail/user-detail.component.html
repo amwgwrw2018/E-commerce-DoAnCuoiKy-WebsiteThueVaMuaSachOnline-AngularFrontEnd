@@ -1,0 +1,181 @@
+<div class="userDetailBody">
+	<div class="userInfoLeft">
+		
+	<div class="userInfoLeft_Top">
+			<img src="assets/images/{{currentUser.avatar}}" id="avatar">
+		<p>Username : {{currentUser.username}}</p>
+		<p>Email : {{currentUser.email}}</p>
+	</div>
+	<div class="userInfoLeft_Left">
+		
+
+		<a   data-toggle="modal" data-target="#changeUserInfo">
+ <img src="assets/images/usericon.png" width="20">  Edit Profile
+</a><br>
+		<a   data-toggle="modal" data-target="#changeUserPassword">
+ <img src="assets/images/usericon.png" width="20">  Change password
+</a>
+<p>Change your avatar</p>
+<input type="file" (change)="changeAvatar($event)" />
+<!-- The Modal -->
+<div class="modal" id="changeUserInfo">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Change user profile</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+      <div class="form-group">
+
+      	<input type="text" name="email" class="form-control" [(ngModel)]="changeEmail" placeholder="Email" value="{{currentUser.email}}">
+      </div>
+      <div class="form-group">
+      	<input type="text" name="fullName" class="form-control" [(ngModel)]="changeFullname" placeholder="Full name" value="{{currentUser.fullName}}">
+      </div>
+      <div class="form-group">
+      	<input type="text" name="Phonenumber" class="form-control" [(ngModel)]="changePhoneNumber" placeholder="Phone number" value="{{currentUser.phoneNumber}}">
+      </div>
+      <div class="form-group">
+      	<input type="text" name="Address" class="form-control" [(ngModel)]="changeAddress"  placeholder="Address" value="{{currentUser.address}}">
+      </div>
+      <button class="btn" (click)="changeMyProfile()" data-dismiss="modal">Change my profile</button>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+	
+
+<div class="modal" id="changeUserPassword">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Change user password</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+      <div class="form-group">
+
+      	<input type="password" name="currentPassword" class="form-control" [(ngModel)]="currentPassword" placeholder="Current password">
+      </div>
+      <div class="form-group">
+      	<input type="password" name="newPassword" class="form-control" [(ngModel)]="newPassword" placeholder="New password">
+      </div>
+   
+      <button class="btn" (click)="changePassword()" data-dismiss="modal">Change password</button>
+
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+	</div>
+		
+		</div>
+<div class="userInfoRight">
+	<div class="userInfoRightTitle">
+		<p>User information</p>
+	</div>
+	<div class="userInfoRightContent">
+		<div>
+				<p>Username</p>
+		<p><b>{{currentUser.username}}</b></p>
+		<p>Email</p>
+		<p><b>{{currentUser.email}}</b></p>
+		</div>
+		<div>
+			<p>Full name</p>
+	<p><b>{{currentUser.fullName}}</b></p>
+	<p>Phone number</p>
+	<p><b>{{currentUser.phoneNumber}}</b></p>
+	<p>Address</p>
+	<p><b>{{currentUser.address}}</b></p>
+		</div>
+		
+		
+	</div>
+	
+
+		
+</div>
+<div style="clear: both;"></div>
+<div >
+	<p class="tableMainTitle">Readable book</p>
+
+	<table id="UserReadableBookList" >
+		<thead>
+			<tr>
+				
+						<th>Book image</th>
+			<th>Book name</th>
+			<th>Book type</th>
+			<th>Language</th>
+			<th>Release date</th>
+			<th>Expired time</th>
+			<th>Is bought</th>
+		</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let book of ReadableBookList">
+		
+				<td><img src="assets/images/{{book[5]}}" width="20"></td>
+			<td><a [routerLink]="['/bookDetail',book[4]]">{{book[0]}}</a></td>
+			<td>{{book[1].bookType}}</td>
+			<td>{{book[2].language}}</td>
+			<td>{{book[3]}}</td>
+			<td>{{book[6]}}</td>
+			<td><p *ngIf="book[7]==0;else boughtMessage">Not buy yet</p><ng-template #boughtMessage>Bought</ng-template></td>
+			</tr>
+		
+		</tbody>
+	</table>
+</div>
+<div *ngIf="isAuthor">
+	<p class="tableMainTitle">Book list for author</p>
+	<table class="table table-bordered " id="AuthorBookList" >
+		<thead>
+			<tr>
+		<th>Book image
+		</th>
+			<th>Book name</th>
+			<th>Book type</th>
+			<th>Language</th>
+			<th>Release date</th>
+		
+		</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let book of BookListByAuthor">
+<td><img src="assets/images/{{book.bookImage}}" style="width: 20px;height: 20px;"></td>
+			<td><a [routerLink]="['/chapterUpload',book.id]">{{book.bookName}}</a></td>
+			<td>{{book.bookType.bookType}}</td>
+			<td>{{book.languageId.language}}</td>
+			<td>{{book.releaseDate}}</td>
+		
+			</tr>
+		
+
+		</tbody>
+	</table>
+</div>
+</div>

@@ -1,0 +1,31 @@
+.mainDiv{
+	width: 1200px;
+	
+	
+	margin: 0 auto;
+}
+.mainTitle{
+	width: 1200px;
+	height: 50px;
+	border-bottom: 1px dotted gray;
+	margin: 0 auto;
+}
+.mainTitle p {
+	font-size: 32px;
+}
+.eachBook{
+	margin: 15px;
+	width: 270px;
+	height: 400px;
+	border: 1px solid #e8e8e8;
+float: left;
+text-align: center;
+}
+.eachBook img{
+	width: 200px;
+	height: 200px;
+	margin: 0 auto;
+}
+.eachBook p{
+	margin: 0;
+}

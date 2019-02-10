@@ -1,0 +1,16 @@
+
+.carouselBodyDiv{
+	width: 1200px;
+	margin: 0 auto;
+}
+.carouselImage{
+	width: 150px;
+	height: 350px;
+}
+.carouselImage:hover{
+	opacity: 0.8;
+}
+
+.item{
+	margin-right:15px; 
+}

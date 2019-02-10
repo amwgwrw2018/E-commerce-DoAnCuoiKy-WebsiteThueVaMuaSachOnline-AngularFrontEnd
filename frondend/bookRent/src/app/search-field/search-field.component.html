@@ -1,0 +1,26 @@
+<div class="form-group searchBar" >
+	<input type="text" name="search" placeholder="Type your book name" class="form-control" [(ngModel)]="bookName" 
+	(keyup)="searchBook()"
+	>
+
+<div class="tableDiv" *ngIf="bookName!=''">
+	
+	<table class="table table-bordered searchTable" >
+		<thead>
+			<th>Book image</th>
+			<th>Book name</th>
+		</thead>
+		<tbody>
+			<tr *ngFor="let book of bookList">
+				<td><img src="assets/images/{{book.bookImage}}" width="20"></td>
+				<td><a href="http://localhost:4200/bookPurchasedDetail/{{book.id}}" routerLinkActive="active"
+
+
+					>{{book.bookName}}</a></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+	
+<div style="clear: both;"></div>
+</div>

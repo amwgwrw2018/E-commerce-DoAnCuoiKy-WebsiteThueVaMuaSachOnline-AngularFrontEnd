@@ -1,0 +1,15 @@
+.SuccessfulPurchasedDiv{
+	width: 1200px;
+
+
+	margin:0 auto;
+}
+.SuccessfulPurchasedDivTitle{
+	width: 1200px;
+	
+	
+text-align: center;
+}
+.SuccessfulPurchasedDivTitle p{
+	font-size: 32px;
+}

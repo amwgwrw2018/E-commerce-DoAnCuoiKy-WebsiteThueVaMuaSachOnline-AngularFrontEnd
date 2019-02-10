@@ -1,0 +1,62 @@
+<div class="carouselBodyDiv">
+  
+  <owl-carousel [options]="{items: 5, dots: true, nav: true,loop:true,autoplay:true,autoplayTimeout:1000,autoplayHoverPause:true}" [items]="images" [carouselClasses]="['owl-theme', 'sliding']" >
+ <div class="item" *ngFor="let book of bookList" >
+  <div >
+    <a [routerLink]="['/bookPurchasedDetail',book.id]"><img src='assets/images/{{book.bookImage}}' class="carouselImage" /></a>
+  </div>
+ </div>
+</owl-carousel>
+</div>
+
+    <!--  Demos -->
+ <!--    <section id="demos">
+      <div class="row">
+        <div class="large-12 columns">
+          <div class="owl-carousel owl-theme">
+            <div class="itemss">
+              <a href=""><img src="assets/images/image1.png"></a>
+            </div>
+            <div class="itemss">
+               <img src="assets/images/image2.png">
+            </div>
+            <div class="itemss">
+               <img src="assets/images/image3.png">
+            </div>
+            <div class="itemss">
+             <img src="assets/images/image4.png">
+            </div>
+            <div class="itemss">
+          <img src="assets/images/image5.png">
+            </div>
+            <div class="itemss">
+              <img src="assets/images/image6.png">
+            </div>
+            <div class="itemss">
+              <img src="assets/images/image7.png">
+            </div>
+            <div class="itemss">
+              <img src="assets/images/image1.png">
+            </div>
+            <div class="itemss">
+               <img src="assets/images/image2.png">
+            </div>
+            <div class="itemss">
+              <img src="assets/images/image3.png">
+            </div>
+            <div class="itemss">
+              <img src="assets/images/image4.png">
+            </div>
+            <div class="itemss">
+           <img src="assets/images/image5.png">
+            </div>
+          </div> -->
+         <!--  <a class="button secondary play">Play</a> 
+          <a class="button secondary stop">Stop</a> 
+          <h3 id="overview">Overview</h3> -->
+
+     
+         
+ <!--        </div>
+      </div>
+    </section> -->

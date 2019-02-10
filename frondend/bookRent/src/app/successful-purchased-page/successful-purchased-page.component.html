@@ -1,0 +1,46 @@
+<div class="SuccessfulPurchasedDiv">
+	<div class="SuccessfulPurchasedDivTitle">
+		<p>
+			Thank you for your purchase!
+
+		</p>
+		<p>Here is your purchase details</p>
+		<table class="table table-bordered" >
+			<thead>
+				<tr>
+					<th>Book image</th>
+					<th>Book name</th>
+					<th>Book type</th>
+					<th>Language</th>
+					<th>Rent time</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><img src="assets/images/{{currentBookInfo.bookImage}}" width="20"></td>
+					<td>
+						{{currentBookInfo.bookName}}
+					</td>
+					<td>
+						{{currentBookInfo.bookType.bookType}}
+					</td>
+					<td>
+						{{currentBookInfo.languageId.language}}
+					</td>
+					<td *ngIf="currentRentPackagedInfo.numberOfDay>0;else purchasedStatus">
+						
+					{{currentRentPackagedInfo.numberOfDay}}	Days
+					</td>
+					<ng-template #purchasedStatus>
+							<td >
+						
+					<b>Purchased</b>
+					</td>
+					</ng-template>
+					
+				</tr>
+			</tbody>
+		</table>
+		<button [routerLink]="['/']">Return to page</button>
+	</div>
+</div>

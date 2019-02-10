@@ -1,0 +1,24 @@
+.BookInfoLogo{
+	width: 1200px;
+	height: 400px;
+text-align: center;
+	margin-top: 30px !important;
+	margin:0 auto;
+}
+.mainTitle{
+	font-size: 32px;
+	
+}
+.BookInfo{
+	text-align: center;
+	width: 400px;
+
+	height: 400px;
+	float: left;
+}
+.IconTitle{
+	font-size: 26px;
+}
+.logoContent{
+	font-size: 22px;
+}

@@ -1,0 +1,95 @@
+.chapterUploadMainTitleDiv{
+	width: 1100px;
+	height: 60px;
+	margin: 0 auto;
+}
+.chapterUploadMainTitleDiv p{
+	font-size: 26px;
+}
+.chapterUploadMainDiv{
+	width: 1100px;
+	height: 1130px;
+
+	margin: 0 auto;
+}
+.chapterUploadBookInfo{
+
+width: 1100px;
+	height: 530px;
+
+}
+.chapterUploadHistory{
+
+	width: 1100px;
+	height: 600px;
+	margin-top: 30px;
+}
+.chapterUploadHistory table{
+	width:100%;
+}
+	.chapterUploadBookImage{
+		width: 250px;
+height: 530px;
+float: left;
+padding: 20px;
+border: 1px solid #b7b7b7;
+	}
+	.chapterUploadBookImage img{
+		width: 200px;
+		
+	}
+	.chapterUploadBookDetail{
+	margin-left:30px; 
+		width: 820px;
+height: 530px;
+float: left;
+border: 1px solid #b7b7b7;
+	}
+
+
+	.BookInfoBar{
+
+		width: 820px;
+		height: 60px;
+		padding-left: 15px;
+		padding-right: 15px;
+		padding-top: 10px;
+		border-bottom: 1px solid #b7b7b7;
+	}
+	.BookInfoDetailMainInfo{
+		width: 848px;
+		height: 470px;
+				padding: 15px;
+	}
+	.BookInfoBarChangeInfoButton{
+		float: right;
+	}
+	.BookInfoDetailTitle{
+		float: left;
+	}
+	.TableHistoryChapter{
+		width: 1000px;
+		margin: 0 auto;
+	}
+	.TableHistoryChapterTitle{
+		width: 1000px;
+		height: 50px;
+		margin: 0 auto;
+	border-bottom: 1px solid #b7b7b7;
+	}
+	.TableHistoryChapter{
+	
+	
+		margin-top: 20px;
+	}
+	.TableHistoryMainDiv{
+		padding: 20px;
+		border: 1px solid #b7b7b7;
+	}
+	.deleteChapterButton{
+		background-color: red;
+		
+	}
+	.paginate_button{
+		
+	}

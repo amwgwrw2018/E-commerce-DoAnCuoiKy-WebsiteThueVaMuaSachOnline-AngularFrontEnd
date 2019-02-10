@@ -1,0 +1,22 @@
+<div class="mainTitle">
+	<p>
+	Book type : {{booklist[0].bookType.bookType}}
+</p>
+</div>
+<div class="mainDiv" 
+infiniteScroll
+      [infiniteScrollDistance]="2"
+      [infiniteScrollThrottle]="50"
+
+(scrolled)="onScroll()">
+	<div class="eachBook" *ngFor="let book of booklist">
+		<a [routerLink]="['/bookPurchasedDetail',book.id]"><img src="assets/images/{{book.bookImage}}" ></a>
+		<p [style.font-size.px]='22'>{{book.bookName}}</p>
+		<p>Type : {{book.bookType.bookType}}</p>
+		<p>Language : {{book.languageId.language}}</p>
+		<p>Release date : {{book.releaseDate | date}}</p>
+		<p><b>Price : {{book.price}} USD</b></p>
+	</div>
+
+	<div style="clear: both;"></div>
+</div>

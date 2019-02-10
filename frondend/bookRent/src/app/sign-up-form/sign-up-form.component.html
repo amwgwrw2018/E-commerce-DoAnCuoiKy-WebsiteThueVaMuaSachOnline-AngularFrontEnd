@@ -1,0 +1,53 @@
+  <div class="login-page">
+  <div class="form">
+  	  <p style="font-size: 26px;" class="signUpFormTitle">Sign up</p>
+  <form class="register-form">
+      <input type="text" placeholder="Username" name="username" [(ngModel)]="username" (keyup)="checkRequired()" />
+    <p class="errorMessage" [style.display]="usernameFail" >Please type username</p>
+<p class="errorMessage" [style.display]="userExistError">This username currently exist,please choose another username</p>
+      <input type="password" placeholder="Password" name="password" [(ngModel)]="password" (keyup)="checkRequired()"/>
+           <p class="errorMessage" [style.display]="passwordFail">Please type password</p>
+      <input type="email" placeholder="Email" name="email" [(ngModel)]="email" (keyup)="checkRequired()" />
+
+      <p class="errorMessage" [style.display]="emailFail" >Please type email</p>
+    <input type="text" placeholder="Full name" name="fullName" [(ngModel)]="fullName" (keyup)="checkRequired()"/>
+    <p class="errorMessage" [style.display]="fullNameFail" >Please type your full name</p>
+    <input type="tel" name="phoneNumber" [(ngModel)]="phoneNumber" placeholder="Phone number" (keyup)="checkRequired()">
+    <p class="errorMessage" [style.display]="phoneNumberFail" >Please type your phone number</p>
+    <textarea name="address" [(ngModel)]="address" rows="10" placeholder="Address" >
+      
+    </textarea>
+          <select (change)="getSelectedValue($event)" name="role">
+      	<option value="ROLE_AUTHOR">Author</option>
+      	<option value="ROLE_USER" selected="">Normal user</option>
+      </select>
+    <div *ngIf="isAuthor">
+    	<br>
+<p>Author infomation </p>
+   	<input type="text" placeholder="Your name" name="name" [(ngModel)]="authorName"/>
+      	<input type="text" placeholder="Your info" name="info" [(ngModel)]="authorInfo"/>
+      	<p>Your description</p>
+      	<textarea  type="text"  name="description" [(ngModel)]="authorDescription" rows="10" >
+
+      		</textarea>
+      	<!-- <p>Avatar</p> -->
+<!--   <input  type="file"  name="avatar" (change)="selectAvatar($event)"/> -->
+    </div>
+     
+  <br>
+  <br>
+   <div class="pretty p-default">
+   	  <input type="checkbox" name="dieukhoan" [ngModel]="isAccept" (change)="change()" [checked]="isAccept">
+       
+        <div class="state">
+            <label>Đồng ý với các điều khoản</label>
+        </div>
+    </div>
+    
+
+      <button [disabled]="disableButton" (click)="signUp()" [disabled]="!canSignUp">Sign up</button>
+      <p class="message">Already registered? <a href="#" [routerLink]="['/login']">Sign In</a></p>
+    </form>
+
+</div>
+</div>

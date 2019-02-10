@@ -1,0 +1,44 @@
+.introductionMainDiv{
+	width: 1200px;
+	
+	 display: flex;
+	margin: 0 auto;
+	margin-bottom: 50px;
+justify-content: space-between;
+}
+.IntroductionMainTitle{
+	width: 1200px;
+	height: 50px;
+	margin: 0 auto;
+	text-align: center;
+	margin-top: 50px;
+	margin-bottom: 30px;
+}
+.IntroductionMainTitle p{
+	font-size: 35px;
+}
+.member{
+width: 295px;
+
+height:600px;
+border: 1px solid #ECF6EC;
+
+text-align: center;
+}
+.member img{
+	width: 200px;
+	height: 200px;
+margin-top: 20px;
+margin-bottom: 20px;
+}
+.member .title{
+	
+}
+.phanCong{
+	width: 1200px;
+	margin:0 auto;
+text-align: center;
+}
+.taskTitle{
+	font-size: 35px;
+}

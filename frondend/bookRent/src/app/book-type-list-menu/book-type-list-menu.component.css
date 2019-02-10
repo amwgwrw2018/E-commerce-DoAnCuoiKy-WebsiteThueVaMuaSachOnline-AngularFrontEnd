@@ -1,0 +1,25 @@
+.NoticeableBookMenu{
+	width: 400px;
+	height: 500px;
+	border:1px solid black;
+	
+}
+.mainDiv{
+	margin-top: 20px;
+}
+.NoticeableBookListTitle{
+	background: #a8f4f2;
+	height: 49px;
+	width: 399px;
+	text-align: center;
+	border-bottom:1px solid black;
+	border-right:1px solid black;
+}
+.NoticeableBookListTitle p{
+	font-size: 26px;
+}
+.NoticeableBookDetail{
+height: 150px;
+width: 400px;
+border:1px solid red;
+}

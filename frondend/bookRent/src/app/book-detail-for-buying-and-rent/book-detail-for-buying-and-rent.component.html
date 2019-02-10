@@ -1,0 +1,127 @@
+<div class="bookDetail">
+
+	
+	<div class="bookDetailInnerDiv">
+		<div class="bigTitle">
+			<p >{{currentBook.bookName}}</p>
+			
+		</div>
+		<div class="bookImage">
+			<img src="assets/images/{{currentBook.bookImage}}">
+		</div>
+		<div class="bookInformation" *ngIf="bookAuthorInfo">
+			<p [style.font-size.px]="'26'">{{currentBook.bookName}}  </p>
+			<p>Author : <b><span *ngFor="let author of bookAuthorInfo">-{{author.authorName}} </span></b></p>
+			<p>Book type : <b>{{currentBook.bookType.bookType}}</b> </p>
+<p>Book language : <b>{{currentBook.languageId.language}}</b> </p>
+<p>Current price : <b>{{currentBook.price}} USD</b></p>
+<p>Book release date: <b>{{currentBook.releaseDate}}</b></p>
+
+<!-- <a [routerLink]="['/bookDetail',currentBook.id]" class="btn btn-danger">Read book</a> -->
+		</div>
+		<div class="selectOptionDiv">
+			<div class="selectOption">
+
+<div class="selectOptionRadioDiv" *ngIf="(ThisBookReadableInfo!=null && ThisBookReadableInfo.isBought!=1)||(ThisBookReadableInfo==null);else purchasedStatus">
+
+    <div class="form-group" >
+    	<p>Choose your option!</p>
+    	<select class="form-control" (change)="getRentInfo($event)">
+    			<option value='{"rentPackageID":"4","price":"{{currentBook.price}}"}' selected>
+    		Buy this book for {{currentBook.price}} USD
+    	</option>
+    		<option *ngFor="let pack of rentPackagedInfo" 
+    		value='{"rentPackageID":"{{pack.rentPackageID}}",
+    		"price":"{{((currentBook.price/4) * (pack.numberOfDay/30)) | number:"1.0-0"}}"}' >Rent for {{pack.numberOfDay}} day with {{((currentBook.price/4) * (pack.numberOfDay/30)) | number:"1.0-0"}} USD</option>
+    
+    	</select>
+    	<br>
+    	<button class="btn" (click)="addNewTransaction()" [style.color]="'white'" [style.background-color]="'green'">Purchase</button>
+    </div>
+
+</div>
+    <ng-template #purchasedStatus>
+    	<div class="purchasedStatus">
+    		<p>Purchased</p>
+    	</div>
+    </ng-template>
+
+
+			</div>
+		</div><div style="clear: both;"></div>
+				<div class="bookDescription">
+			<p [style.font-size.px]="26">Book Description</p>
+			<p [style.font-size.px]="22">Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis </p>
+	<p>
+		Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur
+	</p>
+</div>
+
+		<div class="MoreBookDiv">
+				<div class="MoreBookDivTitle"> 
+				<p>Recommended book</p>
+			</div>
+<div class="MoreBookDivImage" *ngFor="let book of RecommendBookList">
+	<a href="http://localhost:4200/bookPurchasedDetail/{{book.id}}"><img src="assets/images/{{book.bookImage}}" class="img-thumbnail"></a>
+	<p><b>{{book.bookName}}</b></p>
+</div>
+
+<div style="clear: both;"></div>
+
+
+		</div>
+		<div style="clear: both;"></div>
+
+		<div class="CommentDiv">
+			<div class="CommentDivTitle"> 
+				<p>Customer comment for this book</p>
+				<p>{{bookCommentList.length}} comments</p>
+			</div>
+<div class="CommentInputField" *ngIf="isLogin;else elseBlock">
+	
+	<img src="assets/images/{{currentUserInfo.avatar}}" class="commentAvatar">
+	<textarea [(ngModel)]="CommentInput" name="commentInput" required (keyup)="checkCommentInput()"> </textarea>
+	<button [style.background-color]="'blue'" class="btn commentUploadButton" (click)="addComment()" [disabled]="notCommentAny">Comment</button>
+
+</div>
+<ng-template #elseBlock>
+<div class="CommentInputField">
+	
+	Please <a [routerLink]="['/login']">login</a> to comment
+
+</div>
+	</ng-template>
+<div class="commentDetailDiv" *ngFor="let cm of bookCommentList">
+	<div class="commentDetailDivImage">
+		<img src="assets/images/{{cm.userId.avatar}}" class="commentAvatar">
+	</div>
+	<div class="commentDetailDivContent">
+		<p>by {{cm.userId.username}} {{cm.commentDate | date}} </p>
+		<p>{{cm.content}}</p>
+	</div>
+</div>
+
+<!-- <div class="commentDetailDiv">
+	<div class="commentDetailDivImage">
+		<img src="assets/images/userDefault.png">
+	</div>
+	<div class="commentDetailDivContent">
+		<p>by Nam 02/11/2015 21:56:13</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+	</div>
+></div>
+
+<div class="commentDetailDiv">
+	<div class="commentDetailDivImage">
+		<img src="assets/images/userDefault.png">
+	</div>
+	<div class="commentDetailDivContent">
+		<p>by Nam 02/11/2015 21:56:13</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+	</div>
+</div -->
+
+		</div>
+		<div style="clear: both;"></div>
+	</div>
+</div>

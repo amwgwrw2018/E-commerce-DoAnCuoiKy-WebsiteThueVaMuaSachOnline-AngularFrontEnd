@@ -1,0 +1,33 @@
+<div class="menuTop">
+	<div class="centerMenuTop">
+		
+	<div *ngIf="isLogin==false">
+		<a class="topMenuItem" [routerLink]="['signUp']">
+	Sign up
+</a>
+
+<a class="topMenuItem" [routerLink]="['/login']">
+	Sign in
+</a>
+	</div>	
+	<div *ngIf="isLogin==true">
+		
+		<a >Welcome {{currentUser}} , enjoy reading book! </a>
+	
+		
+		<div class="dropdown">
+			<a><img src="assets/images/settingWheel.png" id="wheelIcon" class="dropbtn"></a>
+  
+  <div class="dropdown-content">
+	<a [routerLink]="['/userDetail',currentUserID]"><img src="assets/images/usericon.png" class="itemIcon">   User detail</a>
+		<a  *ngIf="isAuthor" href="" [routerLink]="['/addNewBook']"><img src="assets/images/addBookIcon.png" class="itemIcon">   Add new book</a>
+			<a href="" (click)="logout()" class="topMenuItem"><img src="assets/images/logoutIcon.png" class="itemIcon">   Log out</a>
+  </div>
+</div>
+		
+	</div>
+
+
+</div>
+
+</div>
